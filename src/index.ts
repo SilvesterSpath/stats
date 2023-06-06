@@ -1,11 +1,8 @@
-import fs from 'fs';
+import { CsvFileReader } from './CsvFileReader';
 
-const matches = fs
-  .readFileSync('./football.csv', {
-    encoding: 'utf-8',
-  })
-  .split('\n')
-  .map((item: string): string[] => item.split(','));
+const reader = new CsvFileReader('football.csv');
+reader.read();
+const matches = reader.data;
 
 /* // with this, it is more clear, but not entirely
 const homeWin = 'H';

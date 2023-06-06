@@ -1,15 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs_1 = __importDefault(require("fs"));
-const matches = fs_1.default
-    .readFileSync('./football.csv', {
-    encoding: 'utf-8',
-})
-    .split('\n')
-    .map((item) => item.split(','));
+const CsvFileReader_1 = require("./CsvFileReader");
+const reader = new CsvFileReader_1.CsvFileReader('football.csv');
+reader.read();
+const matches = reader.data;
 /* // with this, it is more clear, but not entirely
 const homeWin = 'H';
 const awayWin = 'A';
