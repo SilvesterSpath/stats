@@ -13,7 +13,7 @@ const awayWin = 'A';
 // this is also necessary
 const draw = 'D'; */
 
-// this is much more descriptive useing enum - enumerations
+// this is much more descriptive using enum - enumerations (using just like an object)
 enum MatchResult {
   HomeWin = 'H',
   AwayWin = 'A',
