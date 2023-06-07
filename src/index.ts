@@ -1,4 +1,5 @@
 import { CsvFileReader } from './CsvFileReader';
+import { changeDateFormat } from './utils';
 
 const reader = new CsvFileReader('football.csv');
 reader.read();
@@ -6,24 +7,15 @@ const matches = reader.data;
 
 const formattedMatches = [];
 
-function changeDateFormat(dateString: string) {
-  const dateParts = dateString.split('/');
-  const day = dateParts[0];
-  const month = dateParts[1];
-  const year = dateParts[2];
-
-  return `${year}-${month}-${day}`;
-}
-
 for (const item of matches) {
-  const newDateString = changeDateFormat(item[0]);
-  const date = new Date(newDateString);
-  if (!date) {
+  const newDate = changeDateFormat(item[0]);
+
+  if (!newDate) {
     continue;
   }
 
   formattedMatches.push([
-    date,
+    newDate,
     item[1],
     item[2],
     +item[3],
