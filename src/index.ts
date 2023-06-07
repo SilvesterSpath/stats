@@ -4,6 +4,37 @@ const reader = new CsvFileReader('football.csv');
 reader.read();
 const matches = reader.data;
 
+const formattedMatches = [];
+
+function changeDateFormat(dateString: string) {
+  const dateParts = dateString.split('/');
+  const day = dateParts[0];
+  const month = dateParts[1];
+  const year = dateParts[2];
+
+  return `${year}-${month}-${day}`;
+}
+
+for (const item of matches) {
+  const newDateString = changeDateFormat(item[0]);
+  const date = new Date(newDateString);
+  if (!date) {
+    continue;
+  }
+
+  formattedMatches.push([
+    date,
+    item[1],
+    item[2],
+    +item[3],
+    +item[4],
+    item[5],
+    item[6],
+  ]);
+}
+
+console.log(formattedMatches);
+
 /* // with this, it is more clear, but not entirely
 const homeWin = 'H';
 const awayWin = 'A';
