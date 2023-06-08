@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { changeDateFormat } from './utils';
+import { MatchResult } from './MatchResult';
 
 export class CsvFileReader {
   data: string[][] = [];
@@ -18,7 +19,7 @@ export class CsvFileReader {
         item[2],
         +item[3],
         +item[4],
-        item[5],
+        item[5] as MatchResult, // 'H', 'A', 'D'
         item[6],
       ]); // ['string1', 'string2', 'string3'];
   }

@@ -1,5 +1,5 @@
 import { CsvFileReader } from './CsvFileReader';
-import { changeDateFormat } from './utils';
+import { MatchResult } from './MatchResult';
 
 const reader = new CsvFileReader('football.csv');
 reader.read();
@@ -10,13 +10,6 @@ const homeWin = 'H';
 const awayWin = 'A';
 // this is also necessary
 const draw = 'D'; */
-
-// this is much more descriptive using enum - enumerations (using just like an object)
-enum MatchResult {
-  HomeWin = 'H',
-  AwayWin = 'A',
-  Draw = 'D',
-}
 
 /* const printMtchResults = (): MatchResult=>{
   if(match[5] === 'H'){
