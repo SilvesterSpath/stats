@@ -18,15 +18,18 @@ class CsvFileReader {
         })
             .split('\n')
             .map((item) => item.split(',')) // 'string1, string2, string3'
-            .map((item) => [
-            (0, utils_1.changeDateFormat)(item[0]),
-            item[1],
-            item[2],
-            +item[3],
-            +item[4],
-            item[5],
-            item[6],
-        ]); // ['string1', 'string2', 'string3'];
+            .map(this.mapRow); // only reference not invoke the method
+    }
+    mapRow(row) {
+        return [
+            (0, utils_1.changeDateFormat)(row[0]),
+            row[1],
+            row[2],
+            +row[3],
+            +row[4],
+            row[5],
+            row[6],
+        ];
     }
 }
 exports.CsvFileReader = CsvFileReader;
