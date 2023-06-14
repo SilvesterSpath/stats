@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MatchReader = void 0;
+const utils_1 = require("./utils");
 class MatchReader {
     constructor(reader) {
         this.reader = reader;
@@ -18,11 +19,11 @@ class MatchReader {
     load() {
         this.reader.read();
         this.data = this.reader.data.map((item) => [
-            item[0],
+            (0, utils_1.changeDateFormat)(item[0]),
             item[1],
             item[2],
-            item[3],
-            item[4],
+            +item[3],
+            +item[4],
             item[5],
             item[6],
         ]);
