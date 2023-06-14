@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const CsvFileReader_1 = require("./CsvFileReader");
+const MatchReader_1 = require("./MatchReader");
 const MatchResult_1 = require("./MatchResult");
-const reader = new CsvFileReader_1.CsvFileReader('football.csv');
-reader.read();
+const fileReader = new CsvFileReader_1.CsvFileReader('./football.csv');
+const reader = new MatchReader_1.MatchReader(fileReader);
+reader.load();
 const matches = reader.data;
 /* // with this, it is more clear, but not entirely
 const homeWin = 'H';
