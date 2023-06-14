@@ -32,7 +32,7 @@ export class MatchReader {
         item[2],
         +item[3],
         +item[4],
-        item[5], // 'H', 'A', 'D'
+        item[5] as MatchResult, // 'H', 'A', 'D'
         item[6],
       ]
     );
