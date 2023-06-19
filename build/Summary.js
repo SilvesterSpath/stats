@@ -9,4 +9,4 @@ class Summary {
     }
 }
 exports.Summary = Summary;
-/* new Summary(new WinsAnalysis(), new ConsoleOutPut()) */
+/* new Summary(new WinsAnalysis(), new ConsoleReport()) */

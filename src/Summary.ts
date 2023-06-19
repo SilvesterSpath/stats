@@ -13,4 +13,4 @@ export class Summary {
   constructor(public analyzer: Analyzer, public outPutTarger: OutputTarget) {}
 }
 
-/* new Summary(new WinsAnalysis(), new ConsoleOutPut()) */
+/* new Summary(new WinsAnalysis(), new ConsoleReport()) */
