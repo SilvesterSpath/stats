@@ -13,7 +13,8 @@ export class Summary {
   constructor(public analyzer: Analyzer, public outPutTarger: OutputTarget) {}
 
   buildAndPrintReport(matchData: MatchData[]): void {
-    this.outPutTarger.print(this.analyzer.run(matchData));
+    const report = this.analyzer.run(matchData);
+    this.outPutTarger.print(report);
   }
 }
 

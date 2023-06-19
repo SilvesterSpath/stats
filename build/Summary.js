@@ -8,7 +8,8 @@ class Summary {
         this.outPutTarger = outPutTarger;
     }
     buildAndPrintReport(matchData) {
-        this.outPutTarger.print(this.analyzer.run(matchData));
+        const report = this.analyzer.run(matchData);
+        this.outPutTarger.print(report);
     }
 }
 exports.Summary = Summary;
