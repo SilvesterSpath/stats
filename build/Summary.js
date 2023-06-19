@@ -7,6 +7,9 @@ class Summary {
         this.analyzer = analyzer;
         this.outPutTarger = outPutTarger;
     }
+    buildAndPrintReport(matchData) {
+        this.outPutTarger.print(this.analyzer.run(matchData));
+    }
 }
 exports.Summary = Summary;
 /* new Summary(new WinsAnalysis(), new ConsoleReport()) */

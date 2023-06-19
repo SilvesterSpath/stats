@@ -11,6 +11,10 @@ export interface OutputTarget {
 export class Summary {
   // here is the total key to composition
   constructor(public analyzer: Analyzer, public outPutTarger: OutputTarget) {}
+
+  buildAndPrintReport(matchData: MatchData[]): void {
+    this.outPutTarger.print(this.analyzer.run(matchData));
+  }
 }
 
 /* new Summary(new WinsAnalysis(), new ConsoleReport()) */
