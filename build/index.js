@@ -2,9 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const CsvFileReader_1 = require("./CsvFileReader");
 const MatchReader_1 = require("./MatchReader");
-const WinsAnalysis_1 = require("./analyzers/WinsAnalysis");
 const Summary_1 = require("./Summary");
-const HtmlReport_1 = require("./reportTargets/HtmlReport");
 // Create an object that satisfies the 'DataReader' interface
 const fileReader = new CsvFileReader_1.CsvFileReader('./football.csv');
 // Create an instance of MatchReader and pass in something satisfying
@@ -12,5 +10,11 @@ const fileReader = new CsvFileReader_1.CsvFileReader('./football.csv');
 const reader = new MatchReader_1.MatchReader(fileReader);
 reader.load();
 const matches = reader.data;
-const summary = new Summary_1.Summary(new WinsAnalysis_1.WinsAnalysis('Man United'), new HtmlReport_1.HtmlReport('report.html'));
+/* const summary = new Summary(
+  new WinsAnalysis('Man United'),
+  new HtmlReport('report.html')
+);
+*/
+// With a static method we can do this:
+const summary = Summary_1.Summary.winsAnalysisWithHtmlReport('Man United');
 summary.buildAndPrintReport(matches);

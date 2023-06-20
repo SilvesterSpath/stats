@@ -14,9 +14,13 @@ const reader = new MatchReader(fileReader);
 reader.load();
 const matches = reader.data;
 
-const summary = new Summary(
+/* const summary = new Summary(
   new WinsAnalysis('Man United'),
   new HtmlReport('report.html')
 );
+*/
+
+// With a static method we can do this:
+const summary = Summary.winsAnalysisWithHtmlReport('Man United');
 
 summary.buildAndPrintReport(matches);
