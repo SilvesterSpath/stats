@@ -6,11 +6,11 @@ import { ConsoleReport } from './reportTargets/ConsoleReport';
 import { HtmlReport } from './reportTargets/HtmlReport';
 
 // Create an object that satisfies the 'DataReader' interface
-const fileReader = new CsvFileReader('./football.csv');
+/* const fileReader = new CsvFileReader('./football.csv'); */
 
 // Create an instance of MatchReader and pass in something satisfying
 // the 'DataReader' interface
-const reader = new MatchReader(fileReader);
+const reader = MatchReader.MatchReaderWithCsv('football.csv');
 reader.load();
 const matches = reader.data;
 
